@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { FiDownload } from "react-icons/fi";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
-import { cvData } from "../data/cvData";
+import { cvData } from "../../content/cvData";
+
+const resumePath = "/assets/documents/Muhammad_Faraz_ATS_Resume.pdf";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -67,13 +70,12 @@ export default function Navbar() {
             {/* CTA + Hamburger */}
             <div className="flex items-center gap-3">
               <a
-                href="/Muhammad_Faraz_CV.pdf"
-                download
-                className="hidden sm:flex btn-primary text-sm py-2 px-4 items-center gap-2"
+                href={resumePath}
+                download="Muhammad_Faraz_ATS_Resume.pdf"
+                className="hidden sm:inline-flex btn-primary min-h-10 items-center gap-2 px-4 py-2 text-sm"
+                aria-label="Download Muhammad Faraz ATS resume"
               >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
+                <FiDownload className="h-4 w-4 shrink-0" aria-hidden="true" />
                 Resume
               </a>
               <button
@@ -109,10 +111,12 @@ export default function Navbar() {
                 </a>
               ))}
               <a
-                href="/Muhammad_Faraz_CV.pdf"
-                download
-                className="btn-primary text-center mt-2"
+                href={resumePath}
+                download="Muhammad_Faraz_ATS_Resume.pdf"
+                className="btn-primary mt-2 inline-flex items-center justify-center gap-2 text-center"
+                aria-label="Download Muhammad Faraz ATS resume"
               >
+                <FiDownload className="h-4 w-4 shrink-0" aria-hidden="true" />
                 Download Resume
               </a>
             </div>

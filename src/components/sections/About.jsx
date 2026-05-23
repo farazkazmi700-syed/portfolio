@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { FiMapPin, FiMail, FiPhone, FiGithub, FiLinkedin } from "react-icons/fi";
-import { cvData } from "../data/cvData";
+import { cvData } from "../../content/cvData";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },

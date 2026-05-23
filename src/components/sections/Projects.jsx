@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiGithub, FiExternalLink } from "react-icons/fi";
-import { cvData } from "../data/cvData";
+import { cvData } from "../../content/cvData";
 
 const categories = ["All", "Machine Learning", "NLP", "Computer Vision", "Data Analytics"];
 

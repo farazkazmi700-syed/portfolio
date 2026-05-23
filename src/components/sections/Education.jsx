@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { cvData } from "../data/cvData";
+import { cvData } from "../../content/cvData";
 
 export default function Education() {
   return (

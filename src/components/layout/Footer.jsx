@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { FiGithub, FiLinkedin, FiMail, FiHeart } from "react-icons/fi";
-import { cvData } from "../data/cvData";
+import { cvData } from "../../content/cvData";
 
 export default function Footer() {
   const year = new Date().getFullYear();

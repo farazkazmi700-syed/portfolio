@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { FiMail, FiMapPin, FiSend, FiGithub, FiLinkedin, FiPhone } from "react-icons/fi";
-import { cvData } from "../data/cvData";
+import { cvData } from "../../content/cvData";
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });

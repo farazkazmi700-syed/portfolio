@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.git/
+.github/
+.vercel/
+
+*.log
+*.local
+
+.env
+.env.*
+!.env.example
+
+.DS_Store
+Thumbs.db
+
+portfolio.jsx

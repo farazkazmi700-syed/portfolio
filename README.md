@@ -1,109 +1,75 @@
-# Muhammad Faraz Kazmi — Personal Portfolio
+# Muhammad Faraz Kazmi Portfolio
 
-A modern, dark-themed personal portfolio built with **React + Vite + Tailwind CSS + Framer Motion**.
+A modern personal portfolio built with React, Vite, Tailwind CSS, and Framer Motion.
 
-## ✨ Features
-- Dark theme with green (`#059669`) & purple accent colors
-- Smooth Framer Motion animations on all sections
-- Filterable project cards by ML category
-- Responsive — mobile, tablet, desktop
-- Contact form (frontend-only, swap in EmailJS/Formspree for real email)
-- Vercel-ready single-page app
+## Project Structure
 
-## 📁 Project Structure
-```
-faraz-portfolio/
+```text
+portfolio/
 ├── public/
+│   ├── assets/
+│   │   └── images/
+│   │       └── faraz-profile.jpg
 │   └── favicon.svg
-│   └── Muhammad_Faraz_CV.pdf   ← Add your CV PDF here
 ├── src/
 │   ├── components/
-│   │   ├── Navbar.jsx
-│   │   ├── Hero.jsx
-│   │   ├── About.jsx
-│   │   ├── Skills.jsx
-│   │   ├── Projects.jsx
-│   │   ├── Education.jsx
-│   │   ├── Contact.jsx
-│   │   └── Footer.jsx
-│   ├── data/
-│   │   └── cvData.js       ← All your CV content lives here
+│   │   ├── layout/
+│   │   │   ├── Footer.jsx
+│   │   │   └── Navbar.jsx
+│   │   └── sections/
+│   │       ├── About.jsx
+│   │       ├── Contact.jsx
+│   │       ├── Education.jsx
+│   │       ├── Hero.jsx
+│   │       ├── Projects.jsx
+│   │       └── Skills.jsx
+│   ├── content/
+│   │   └── cvData.js
 │   ├── App.jsx
-│   ├── main.jsx
-│   └── index.css
+│   ├── index.css
+│   └── main.jsx
 ├── index.html
-├── vite.config.js
-├── tailwind.config.js
+├── package.json
 ├── postcss.config.js
+├── tailwind.config.js
 ├── vercel.json
-└── package.json
+└── vite.config.js
 ```
 
-## 🚀 Local Development
+## Local Development
 
-### 1. Install dependencies
-```bash
-npm install
+Use `npm.cmd` in PowerShell if `npm` is blocked by execution policy.
+
+```powershell
+cd "D:\Smester 7th\Projects\Portfolio\portfolio"
+npm.cmd install
+npm.cmd run dev
 ```
 
-### 2. Start dev server
-```bash
-npm run dev
-```
-Open http://localhost:5173
+Open `http://localhost:5173/`.
 
-### 3. Build for production
-```bash
-npm run build
+## Production Build
+
+```powershell
+npm.cmd run build
 ```
 
-## 📤 Deploy on Vercel (Recommended)
+The production files are generated in `dist/`.
 
-### Option A — Vercel CLI (fastest)
-```bash
-npm install -g vercel
-vercel
-```
-Follow the prompts. Vercel auto-detects Vite.
+## Deploy On Vercel
 
-### Option B — Vercel Dashboard (drag & drop)
-1. Run `npm run build` to generate the `dist/` folder
-2. Go to https://vercel.com/new
-3. Drag and drop the `dist/` folder
-4. Done — your site is live!
+Recommended settings:
 
-### Option C — GitHub + Vercel (recommended for ongoing updates)
-1. Push this folder to a GitHub repo
-2. Go to https://vercel.com/new → Import Git Repository
-3. Select your repo
-4. Framework preset: **Vite** (auto-detected)
-5. Click Deploy
+- Framework Preset: `Vite`
+- Build Command: `npm run build`
+- Output Directory: `dist`
+- Install Command: `npm install`
 
-## 📧 Enable Real Email (Contact Form)
-Replace the `setTimeout` mock in `Contact.jsx` with **EmailJS**:
+The included `vercel.json` rewrites all routes to `index.html`, which is correct for a single-page React app.
 
-```bash
-npm install @emailjs/browser
-```
+## Edit Content
 
-```js
-import emailjs from "@emailjs/browser";
-
-emailjs.send(
-  "YOUR_SERVICE_ID",
-  "YOUR_TEMPLATE_ID",
-  { name: form.name, email: form.email, message: form.message },
-  "YOUR_PUBLIC_KEY"
-);
-```
-Sign up free at https://emailjs.com
-
-## 🎨 Customisation
-- All CV content: `src/data/cvData.js`
-- Colors: `tailwind.config.js` → `colors.primary`
-- Fonts: `index.html` Google Fonts link + `tailwind.config.js` fontFamily
-- Add CV PDF: place `Muhammad_Faraz_CV.pdf` in `/public/`
-
-## 🔍 SEO
-- Meta title, description, og:tags already set in `index.html`
-- Update `og:url` with your live Vercel URL after deployment
+- Portfolio text and links: `src/content/cvData.js`
+- Hero portrait: `public/assets/images/faraz-profile.jpg`
+- Global styles: `src/index.css`
+- Theme colors and fonts: `tailwind.config.js`

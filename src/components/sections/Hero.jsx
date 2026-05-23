@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { FiGithub, FiLinkedin, FiMail, FiArrowDown } from "react-icons/fi";
-import { cvData } from "../data/cvData";
+import { cvData } from "../../content/cvData";
 
 const TypewriterText = () => {
   const roles = ["AI Engineer", "Python Developer", "ML Practitioner", "Data Analyst"];
@@ -110,7 +110,7 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Right: Visual card */}
+          {/* Right: Portrait */}
           <motion.div
             initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -122,51 +122,26 @@ export default function Hero() {
               animate="animate"
               className="relative"
             >
-              {/* Avatar circle */}
-              <div className="w-72 h-72 rounded-3xl bg-dark-card border border-dark-border p-1 shadow-2xl animate-pulse-glow relative overflow-hidden">
-                <div className="w-full h-full rounded-2xl bg-gradient-to-br from-dark-surface via-dark-card to-dark flex items-center justify-center relative overflow-hidden">
-                  {/* Grid lines inside */}
-                  <div className="absolute inset-0 bg-mesh opacity-40" />
-                  <div className="relative z-10 text-center">
-                    <div className="w-24 h-24 rounded-2xl bg-primary/20 border border-primary/40 flex items-center justify-center mx-auto mb-4">
-                      <span className="font-display font-bold text-5xl text-primary">F</span>
-                    </div>
-                    <p className="font-display font-bold text-white text-xl">Faraz Kazmi</p>
-                    <p className="text-primary font-mono text-sm mt-1">AI Engineer</p>
-                  </div>
+              <div className="relative h-[26rem] w-[21rem] overflow-hidden rounded-3xl border border-primary/20 bg-dark-card shadow-2xl shadow-primary/10 animate-pulse-glow">
+                <img
+                  src="/assets/images/faraz-profile.jpg"
+                  alt="Muhammad Faraz Kazmi"
+                  className="h-full w-full object-cover object-[50%_28%] saturate-110 contrast-110 brightness-90"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-primary/10" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_22%,transparent_0%,transparent_42%,rgba(0,0,0,0.62)_100%)]" />
+                <div className="absolute inset-x-5 bottom-5">
+                  <p className="font-display text-2xl font-bold text-white drop-shadow-lg">
+                    Faraz Kazmi
+                  </p>
+                  <p className="mt-1 font-mono text-sm text-primary">
+                    AI Engineer & Python Developer
+                  </p>
                 </div>
-
-                {/* Floating badges */}
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.9 }}
-                  className="absolute -left-12 top-8 bg-dark-card border border-dark-border rounded-xl px-3 py-2 shadow-lg"
-                >
-                  <span className="text-xs font-mono text-primary">🤖 ML / AI</span>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 1.1 }}
-                  className="absolute -right-10 bottom-12 bg-dark-card border border-dark-border rounded-xl px-3 py-2 shadow-lg"
-                >
-                  <span className="text-xs font-mono text-primary">🐍 Python</span>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1.3 }}
-                  className="absolute -bottom-5 left-1/2 -translate-x-1/2 bg-dark-card border border-primary/30 rounded-xl px-4 py-2 shadow-lg"
-                >
-                  <span className="text-xs font-mono text-gray-300">📍 Lahore, PK</span>
-                </motion.div>
               </div>
 
               {/* Spinning ring */}
-              <div className="absolute inset-0 -m-4 rounded-full border border-dashed border-primary/10 animate-spin-slow" />
+              <div className="absolute inset-0 -m-4 rounded-[2rem] border border-dashed border-primary/10 animate-spin-slow" />
             </motion.div>
           </motion.div>
         </div>
