@@ -24,53 +24,33 @@ export const cvData = {
   ],
 
   projects: [
+    
+    
     {
-      title: "Laptop Price Predictor",
-      description: "Engineered a regression ML model to accurately predict laptop pricing from hardware specifications. Applied feature engineering and cross-validation for robust performance.",
-      tags: ["Python", "Scikit-learn", "Regression", "Pandas"],
-      github: "https://github.com/Umer-ML/Machine_Learning_Projects/tree/main/Laptop%20price%20predictor",
-      category: "Machine Learning",
-    },
-    {
-      title: "Spam Email Classifier",
-      description: "Built an NLP pipeline using TF-IDF vectorization and classification algorithms to detect spam emails with high accuracy. Includes text preprocessing and model evaluation.",
-      tags: ["Python", "NLP", "TF-IDF", "Classification"],
-      github: "https://github.com/Umer-ML/Machine_Learning_Projects/tree/main/E-mail%20Spam%20Classifier",
-      category: "NLP",
-    },
-    {
-      title: "House & Car Price Prediction",
+      title: "House Price Prediction",
       description: "Developed dual ML models for real estate and automobile price estimation. Leveraged regression techniques with comprehensive EDA and feature selection.",
-      tags: ["Python", "Regression", "EDA", "Pandas"],
-      github: "https://github.com/Umer-ML/Machine_Learning_Projects/tree/main/Car%20Price%20Prediction",
+      tags: ["Python", "Regression", "EDA", "Pandas"]
       category: "Machine Learning",
-    },
+    }
+    ,
     {
-      title: "Posture Detection with PoseNet",
-      description: "Implemented real-time human posture detection using the PoseNet deep learning model. Detects body keypoints for ergonomic analysis and health monitoring use cases.",
-      tags: ["Python", "Deep Learning", "Computer Vision", "PoseNet"],
-      github: "https://github.com/farazkazmi700-syed",
+      title: "Multi Turn AI Chatbot with llama3",
+      description: "Built a multi-turn AI chatbot using llama3, capable of understanding context and providing relevant responses. Integrated with a web interface for user interaction.",
+      tags: ["Python", "llama3", "NLP", "Chatbot"],
+    }
+    ,
+    {
+      title: "Plant Disease Detection System",
+      description: "Created a computer vision model to identify plant diseases from leaf images. Utilized CNNs for image classification and deployed the model with a user-friendly interface.",
+      tags: ["Python", "Computer Vision", "CNN", "TensorFlow"],
       category: "Computer Vision",
-    },
-    {
-      title: "COVID-19 Analytics Dashboard",
-      description: "Created an interactive data visualization dashboard tracking pandemic trends globally. Built with Streamlit and Matplotlib, featuring dynamic charts and real-time filtering.",
-      tags: ["Python", "Streamlit", "Matplotlib", "Data Viz"],
-      github: "https://github.com/Umer-ML/Machine_Learning_Projects/tree/main/Making%20Corona%20Virus%20Dashboard",
-      category: "Data Analytics",
-    },
-    {
-      title: "Titanic Survival Prediction",
-      description: "Classic ML challenge solved with thorough EDA, feature engineering, and ensemble classification models. Achieved strong accuracy through rigorous preprocessing.",
-      tags: ["Python", "EDA", "Classification", "Scikit-learn"],
-      github: "https://github.com/Umer-ML/Machine_Learning_Projects/tree/main/Session%20on%20titanic%20survival",
-      category: "Machine Learning",
-    },
+    }
+
   ],
 
   education: [
     {
-      degree: "BS Computer Science — Artificial Intelligence",
+      degree: "BS Computer Science (BSCS)",
       institution: "Virtual University of Pakistan",
       period: "March 2023 – March 2027",
       status: "In Progress",

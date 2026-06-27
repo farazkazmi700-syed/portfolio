@@ -115,21 +115,21 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="hidden lg:flex justify-center"
+            className="hidden md:flex justify-center"
           >
             <motion.div
               variants={floatVariants}
               animate="animate"
               className="relative"
             >
-              <div className="relative h-[26rem] w-[21rem] overflow-hidden rounded-3xl border border-primary/20 bg-dark-card shadow-2xl shadow-primary/10 animate-pulse-glow">
+              <div className="relative h-[20rem] w-[16rem] md:h-[22rem] md:w-[18rem] lg:h-[26rem] lg:w-[21rem] overflow-hidden rounded-3xl border border-primary/20 bg-dark-card shadow-2xl shadow-primary/10 animate-pulse-glow">
                 <img
                   src="/assets/images/faraz-profile.jpg"
                   alt="Muhammad Faraz Kazmi"
                   className="h-full w-full object-cover object-[50%_28%] saturate-110 contrast-110 brightness-90"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-primary/10" />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_22%,transparent_0%,transparent_42%,rgba(0,0,0,0.62)_100%)]" />
+                <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/40 via-black/6 to-primary/6" />
+                <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_22%,transparent_0%,transparent_42%,rgba(0,0,0,0.62)_100%)] opacity-20" />
                 <div className="absolute inset-x-5 bottom-5">
                   <p className="font-display text-2xl font-bold text-white drop-shadow-lg">
                     Faraz Kazmi
