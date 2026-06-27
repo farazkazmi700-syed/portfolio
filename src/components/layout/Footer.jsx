@@ -15,8 +15,8 @@ export default function Footer() {
               F
             </div>
             <div>
-              <p className="font-display font-bold text-white text-sm">Muhammad Faraz Kazmi</p>
-              <p className="text-gray-600 text-xs font-mono">AI Engineer & Python Developer</p>
+              <p className="font-display font-bold text-white text-sm drop-shadow-md">Muhammad Faraz Kazmi</p>
+              <p className="text-white/80 text-xs font-mono drop-shadow-sm">AI Engineer & Python Developer</p>
             </div>
           </div>
 
@@ -54,7 +54,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 pt-6 border-t border-dark-border text-center">
-          <p className="text-gray-600 text-xs font-mono flex items-center justify-center gap-1.5">
+          <p className="text-white/70 text-xs font-mono flex items-center justify-center gap-1.5 drop-shadow-sm">
             © {year} Muhammad Faraz Kazmi · Built with
             <FiHeart size={11} className="text-primary" />
             using React & Tailwind CSS

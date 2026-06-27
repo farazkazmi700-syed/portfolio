@@ -41,10 +41,10 @@ export default function Navbar() {
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <a href="#hero" className="flex items-center gap-2 group">
-              <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center font-display font-bold text-white text-sm group-hover:scale-110 transition-transform">
+              <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center font-display font-bold text-white text-sm drop-shadow-md group-hover:scale-110 transition-transform">
                 F
               </div>
-              <span className="font-display font-bold text-white text-lg hidden sm:block">
+              <span className="font-display font-bold text-white text-lg hidden sm:block drop-shadow-lg">
                 Faraz<span className="text-primary">.</span>
               </span>
             </a>
@@ -105,7 +105,7 @@ export default function Navbar() {
                   key={link.label}
                   href={link.href}
                   onClick={() => { setActive(link.label); setMenuOpen(false); }}
-                  className="py-3 px-4 text-gray-300 hover:text-primary hover:bg-dark-surface rounded-xl transition-all font-body"
+                  className="py-3 px-4 text-white/90 hover:text-primary hover:bg-dark-surface rounded-xl transition-all font-body"
                 >
                   {link.label}
                 </a>

@@ -21,7 +21,7 @@ export default function Contact() {
   };
 
   const inputClass =
-    "w-full bg-dark-surface border border-dark-border rounded-xl px-4 py-3 text-gray-300 placeholder-gray-600 font-body text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all";
+    "w-full bg-dark-surface border border-dark-border rounded-xl px-4 py-3 text-white placeholder-gray-600 font-body text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all";
 
   return (
     <section id="contact" className="section-padding relative">
@@ -35,11 +35,11 @@ export default function Contact() {
           className="text-center mb-16"
         >
           <span className="section-tag">// contact</span>
-          <h2 className="font-display font-bold text-3xl sm:text-4xl text-white mt-2">
+          <h2 className="font-display font-bold text-3xl sm:text-4xl text-white drop-shadow-lg mt-2">
             Let's <span className="gradient-text">Connect</span>
           </h2>
-          <p className="text-gray-500 mt-3 max-w-md mx-auto font-body">
-            Open to internship opportunities, collaborations, and AI projects. Drop me a message!
+          <p className="text-gray-400 mt-3 max-w-md mx-auto font-body">
+            Open to Remote Work, collaborations, and AI projects. Drop me a message!
           </p>
         </motion.div>
 
@@ -64,9 +64,9 @@ export default function Contact() {
                 <div>
                   <p className="text-xs font-mono text-gray-600 mb-0.5">{label}</p>
                   {href ? (
-                    <a href={href} className="text-gray-300 hover:text-primary transition-colors text-sm font-body">{value}</a>
+                    <a href={href} className="text-white/90 hover:text-primary transition-colors text-sm font-body">{value}</a>
                   ) : (
-                    <p className="text-gray-300 text-sm font-body">{value}</p>
+                    <p className="text-white/90 text-sm font-body">{value}</p>
                   )}
                 </div>
               </div>
@@ -139,7 +139,7 @@ export default function Contact() {
                   name="subject"
                   value={form.subject}
                   onChange={handleChange}
-                  placeholder="Internship Opportunity / Collaboration"
+                  placeholder="Remote Work Opportunity / Collaboration"
                   required
                   className={inputClass}
                 />

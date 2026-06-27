@@ -24,7 +24,7 @@ export default function Projects() {
           className="text-center mb-12"
         >
           <span className="section-tag">// projects</span>
-          <h2 className="font-display font-bold text-3xl sm:text-4xl text-white mt-2">
+          <h2 className="font-display font-bold text-3xl sm:text-4xl text-white drop-shadow-lg mt-2">
             What I've <span className="gradient-text">Built</span>
           </h2>
           <p className="text-gray-500 mt-3 max-w-md mx-auto font-body">
@@ -99,7 +99,7 @@ export default function Projects() {
                   </div>
                 </div>
 
-                <h3 className="font-display font-bold text-white text-base mb-2 group-hover:text-primary transition-colors">
+                <h3 className="font-display font-bold text-white text-base drop-shadow-sm mb-2 group-hover:text-primary transition-colors">
                   {project.title}
                 </h3>
                 <p className="text-gray-500 text-sm leading-relaxed flex-1 mb-5">

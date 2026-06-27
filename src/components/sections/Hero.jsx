@@ -37,7 +37,7 @@ export default function Hero() {
             >
               <span className="section-tag">
                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                Available for Internships
+                  Open to Remote Work
               </span>
             </motion.div>
 
@@ -46,11 +46,12 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
               className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mt-4 mb-4"
+                className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white drop-shadow-lg leading-tight mt-4 mb-4"
             >
               Hi, I'm{" "}
               <span className="gradient-text">Faraz</span>
               <br />
-              <span className="text-3xl sm:text-4xl lg:text-5xl text-gray-300">
+              <span className="text-3xl sm:text-4xl lg:text-5xl text-white/80">
                 I build with{" "}
               </span>
               <span className="text-3xl sm:text-4xl lg:text-5xl text-primary font-mono">
@@ -122,7 +123,7 @@ export default function Hero() {
               animate="animate"
               className="relative"
             >
-              <div className="relative h-[20rem] w-[16rem] md:h-[22rem] md:w-[18rem] lg:h-[26rem] lg:w-[21rem] overflow-hidden rounded-3xl border border-primary/20 bg-dark-card shadow-2xl shadow-primary/10 animate-pulse-glow">
+              <div className="relative h-[20rem] w-[16rem] md:h-[22rem] md:w-[18rem] lg:h-[26rem] lg:w-[21rem] overflow-hidden rounded-3xl border border-primary/20 bg-dark-card shadow-2xl shadow-primary/10 drop-shadow-2xl animate-pulse-glow">
                 <img
                   src="/assets/images/faraz-profile.png"
                   alt="Muhammad Faraz Kazmi"
@@ -131,10 +132,10 @@ export default function Hero() {
                 <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/20 via-black/5 to-primary/5" />
                 <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_22%,transparent_0%,transparent_42%,rgba(0,0,0,0.62)_100%)] opacity-12" />
                 <div className="absolute inset-x-5 bottom-5">
-                  <p className="font-display text-2xl font-bold text-white drop-shadow-lg">
+                  <p className="font-display text-2xl md:text-3xl font-extrabold text-white drop-shadow-lg">
                     Faraz Kazmi
                   </p>
-                  <p className="mt-1 font-mono text-sm text-primary">
+                  <p className="mt-1 font-body text-sm text-primary">
                     AI Engineer & Python Developer
                   </p>
                 </div>

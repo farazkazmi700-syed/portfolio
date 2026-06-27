@@ -37,7 +37,7 @@ export default function Skills() {
           className="text-center mb-16"
         >
           <span className="section-tag">// technical skills</span>
-          <h2 className="font-display font-bold text-3xl sm:text-4xl text-white mt-2">
+          <h2 className="font-display font-bold text-3xl sm:text-4xl text-white drop-shadow-lg mt-2">
             My <span className="gradient-text">Toolkit</span>
           </h2>
           <p className="text-gray-500 mt-3 max-w-md mx-auto font-body">
@@ -62,7 +62,7 @@ export default function Skills() {
                   {categoryIcons[category] || "⚡"}
                 </div>
                 <div>
-                  <h3 className="font-display font-bold text-white text-sm">{category}</h3>
+                  <h3 className="font-display font-bold text-white text-sm drop-shadow-sm">{category}</h3>
                   <p className="text-gray-600 text-xs font-mono">{skills.length} items</p>
                 </div>
               </div>

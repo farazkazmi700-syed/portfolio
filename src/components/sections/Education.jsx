@@ -13,7 +13,7 @@ export default function Education() {
           className="text-center mb-16"
         >
           <span className="section-tag">// education & certs</span>
-          <h2 className="font-display font-bold text-3xl sm:text-4xl text-white mt-2">
+          <h2 className="font-display font-bold text-3xl sm:text-4xl text-white drop-shadow-lg mt-2">
             My <span className="gradient-text">Background</span>
           </h2>
         </motion.div>
@@ -26,7 +26,7 @@ export default function Education() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="font-display font-bold text-white text-lg mb-6 flex items-center gap-3"
+              className="font-display font-bold text-white drop-shadow-md text-lg mb-6 flex items-center gap-3"
             >
               <span className="w-8 h-8 rounded-lg bg-primary/20 border border-primary/30 flex items-center justify-center text-sm">🎓</span>
               Education
@@ -67,7 +67,7 @@ export default function Education() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="font-display font-bold text-white text-lg mb-6 flex items-center gap-3"
+              className="font-display font-bold text-white drop-shadow-md text-lg mb-6 flex items-center gap-3"
             >
               <span className="w-8 h-8 rounded-lg bg-primary/20 border border-primary/30 flex items-center justify-center text-sm">🏆</span>
               Certifications

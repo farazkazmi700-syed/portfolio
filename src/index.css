@@ -8,7 +8,7 @@
   }
 
   body {
-    @apply bg-dark text-gray-300 font-body antialiased;
+    @apply bg-dark text-white font-body antialiased;
     background-image: 
       radial-gradient(ellipse at 20% 50%, rgba(5, 150, 105, 0.04) 0%, transparent 50%),
       radial-gradient(ellipse at 80% 20%, rgba(124, 58, 237, 0.04) 0%, transparent 50%);
@@ -40,7 +40,7 @@
 
   .gradient-text {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, #059669 0%, #10b981 50%, #7c3aed 100%);
+    background-image: linear-gradient(135deg, #ffffff 0%, #10b981 100%);
   }
 
   .card-dark {
@@ -56,7 +56,7 @@
   }
 
   .skill-tag {
-    @apply bg-dark-surface border border-dark-border text-gray-300 text-sm font-mono px-3 py-1.5 rounded-lg hover:border-primary hover:text-primary transition-all duration-200;
+    @apply bg-dark-surface border border-dark-border text-white text-sm font-mono px-3 py-1.5 rounded-lg hover:border-primary hover:text-primary transition-all duration-200;
   }
 
   .section-tag {

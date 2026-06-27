@@ -50,7 +50,6 @@ const PROJECTS = [
 const SKILL_BARS = [
   { name: "Python", level: 90 },
   { name: "Machine Learning", level: 82 },
-  { name: "Data Analysis", level: 88 },
   { name: "NLP / Transformers", level: 75 },
   { name: "SQL & Databases", level: 78 },
   { name: "Data Visualization", level: 85 },
