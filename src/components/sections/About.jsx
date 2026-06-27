@@ -12,10 +12,10 @@ const fadeUp = {
 };
 
 const stats = [
-  { value: "6+", label: "ML Projects" },
-  { value: "3+", label: "Years Learning" },
+  { value: "3+", label: "ML Projects" },
+  { value: "2+", label: "Certifications" },
   { value: "AI", label: "Specialization" },
-  { value: "BSCS", label: "Degree" },
+  { value: "BSCS", label: "Degree in Computer Science" },
 ];
 
 export default function About() {

@@ -3,7 +3,7 @@ import { FiGithub, FiLinkedin, FiMail, FiArrowDown } from "react-icons/fi";
 import { cvData } from "../../content/cvData";
 
 const TypewriterText = () => {
-  const roles = ["AI Engineer", "Python Developer", "ML Practitioner", "Data Analyst"];
+  const roles = ["AI Engineer", "Python Developer"];
   return (
     <span className="text-primary font-mono">
       {roles[0]}
