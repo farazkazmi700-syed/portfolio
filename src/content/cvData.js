@@ -29,7 +29,7 @@ export const cvData = {
     {
       title: "House Price Prediction",
       description: "Developed dual ML models for real estate and automobile price estimation. Leveraged regression techniques with comprehensive EDA and feature selection.",
-      tags: ["Python", "Regression", "EDA", "Pandas"]
+      tags: ["Python", "Regression", "EDA", "Pandas"],
       category: "Machine Learning",
     }
     ,
