@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FiGithub, FiExternalLink } from "react-icons/fi";
 import { cvData } from "../../content/cvData";
 
-const categories = ["Machine Learning Models", "Generative AI", "Computer Vision", "NLP & Chatbots", "All"];
+const categories = ["Machine Learning Model Training", "Generative AI", "Computer Vision", "NLP & Chatbots","AI Automations"];
 
 export default function Projects() {
   const [active, setActive] = useState("All");
@@ -28,7 +28,7 @@ export default function Projects() {
             What I've <span className="gradient-text">Built</span>
           </h2>
           <p className="text-gray-500 mt-3 max-w-md mx-auto font-body">
-            Real-world ML and AI projects demonstrating applied skills in Artificial Intelligence and intelligent systems.
+            Real-world ML and AI projects demonstrating applied skills in Artificial Intelligence and Systems Automations.
           </p>
         </motion.div>
 

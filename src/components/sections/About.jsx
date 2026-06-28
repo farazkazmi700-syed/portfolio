@@ -54,7 +54,7 @@ export default function About() {
                 I'm an aspiring AI Engineer currently pursuing a BS in Computer Science with a specialization in Artificial Intelligence at Virtual University of Pakistan.
               </p>
               <p className="text-gray-400 leading-relaxed mb-6">
-                My journey started with Python and expanded into the fascinating world of Machine Learning, Deep Learning, and NLP. I enjoy tackling real-world challenges — from predicting prices to detecting human posture using deep neural networks.
+                My journey started with Python and expanded into the fascinating world of Machine Learning, Deep Learning, and NLP. 
               </p>
               <p className="text-gray-400 leading-relaxed mb-8">
                 I'm currently open to <span className="text-primary font-medium">Remote Work opportunities</span> where I can grow, contribute, and apply AI to solve meaningful problems.

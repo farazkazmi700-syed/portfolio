@@ -45,8 +45,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mt-4 mb-4"
-                className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white drop-shadow-lg leading-tight mt-4 mb-4"
+              className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white drop-shadow-lg leading-tight mt-4 mb-4"
             >
               Hi, I'm{" "}
               <span className="gradient-text">Faraz</span>
@@ -132,10 +131,10 @@ export default function Hero() {
                 <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/20 via-black/5 to-primary/5" />
                 <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_22%,transparent_0%,transparent_42%,rgba(0,0,0,0.62)_100%)] opacity-12" />
                 <div className="absolute inset-x-5 bottom-5">
-                  <p className="font-display text-2xl md:text-3xl font-extrabold text-white drop-shadow-lg">
+                  <p className="font-display text-2xl md:text-3xl font-extrabold text-green drop-shadow-lg">
                     Faraz Kazmi
                   </p>
-                  <p className="mt-1 font-body text-sm text-primary">
+                  <p className="mt-1 font-body text-sm text-primary text-green drop-shadow-lg">
                     AI Engineer & Python Developer
                   </p>
                 </div>

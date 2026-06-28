@@ -11,25 +11,24 @@ export const cvData = {
 
   skills: {
     "Languages": ["Python"],
-    "ML / AI": ["Machine Learning", "Deep Learning", "NLP (TF-IDF)", "Computer Vision", "Feature Engineering", "EDA"],
-    "Libraries": ["NumPy", "Pandas", "Scikit-learn", "Matplotlib", "Seaborn", "Streamlit"],
-    "Databases": ["MySQL", "Firebase", "Supabase"],
-    "Tools": ["Jupyter Notebook", "VS Code", "Git", "GitHub", "Slack"],
-    "Methodologies": ["Regression", "Classification", "Recommendation Systems", "Agile"],
+    "ML / AI": ["Machine Learning", "Deep Learning", "NLP", "Computer Vision", "Generative AI", "Agentic AI", "Feature Engineering"],
+    "Libraries": ["NumPy", "Pandas","Matplotlib", "Scikit-learn", "Tensorflow", "Seaborn", "Streamlit","Flask"],
+    "Databases": ["MySQL", "Firebase", "Supabase","Mongo DB"],
+    "Tools": ["Jupyter Notebook", "VS Code","PYcharm","Google Collab","Git", "GitHub", "Slack"],
+    "Methodologies": ["Regression", "Classification", "Recommendation Systems", "Systems Automations", "Agile"],
   },
 
   softSkills: [
-    "Teamwork", "Leadership", "Problem Solving", "Communication",
-    "Time Management", "Critical Thinking", "Adaptability", "Attention to Detail", "Discipline"
+    "Leadership", "Problem Solving", "Teamwork", "Communication","Discipline",
+    "Time Management", "Critical Thinking", "Adaptability", "Attention to Detail", 
   ],
 
   projects: [
     
-    
     {
       title: "House Price Prediction",
-      description: "Developed dual ML models for real estate and automobile price estimation. Leveraged regression techniques with comprehensive EDA and feature selection.",
-      tags: ["Python", "Regression", "EDA", "Pandas"],
+      description: "Developed ML models for real estate price estimation. Leveraged Multivariant Regression techniques with comprehensive EDA and feature selection.",
+      tags: ["Python", "Pandas","EDA", "Regression"],
       category: "Machine Learning",
     }
     ,
@@ -37,6 +36,8 @@ export const cvData = {
       title: "Multi Turn AI Chatbot with llama3",
       description: "Built a multi-turn AI chatbot using llama3, capable of understanding context and providing relevant responses. Integrated with a web interface for user interaction.",
       tags: ["Python", "llama3", "NLP", "Chatbot"],
+     category: "Generative AI",
+
     }
     ,
     {
@@ -59,9 +60,14 @@ export const cvData = {
 
   certifications: [
     {
-      name: "NAVTTC Artificial Intelligence Course",
-      issuer: "Cyber Pulse IT Institute Lahore",
+      name: "Artificail Intelligence / Machine Learning Course",
+      issuer: "National Vocational Trade Training Center",
       period: "February 2026 – May 2026",
+    },
+    {
+      name: "Artificial Intelligence on Microsoft Azure",
+      issuer: "Microsoft and offered through Coursera",
+      period: "June, 2026",
     }
   ],
 }

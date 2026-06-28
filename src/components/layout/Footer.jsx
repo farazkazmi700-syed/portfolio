@@ -55,9 +55,7 @@ export default function Footer() {
 
         <div className="mt-8 pt-6 border-t border-dark-border text-center">
           <p className="text-white/70 text-xs font-mono flex items-center justify-center gap-1.5 drop-shadow-sm">
-            © {year} Muhammad Faraz Kazmi · Built with
-            <FiHeart size={11} className="text-primary" />
-            using React & Tailwind CSS
+            © {year} Muhammad Faraz Kazmi
           </p>
         </div>
       </div>

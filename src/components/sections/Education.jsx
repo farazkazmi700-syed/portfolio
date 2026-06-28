@@ -112,7 +112,7 @@ export default function Education() {
                 <span className="text-xs font-mono text-primary">Currently Exploring</span>
               </div>
               <div className="flex flex-wrap gap-2">
-                {["Deep Learning", "LangChain", "Transformers", "FastAPI", "Docker"].map((item) => (
+                {["Generative", "LangChain", "Hugging Face", "Agentic AI", "FastAPI", "Docker", "APIs"].map((item) => (
                   <span key={item} className="text-xs font-mono bg-dark border border-dark-border text-gray-400 px-2.5 py-1 rounded-lg">
                     {item}
                   </span>
