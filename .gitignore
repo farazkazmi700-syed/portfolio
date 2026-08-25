@@ -1,10 +1,22 @@
+# Node
 node_modules/
 dist/
 .vercel/
 
-*.log
-*.local
+# Python / Flask
+venv/
+__pycache__/
+*.pyc
+instance/
 
+# Env & logs
 .env
+.env.local
 .env.*
 !.env.example
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
