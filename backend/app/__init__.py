@@ -1,6 +1,7 @@
 """Flask application factory."""
 from flask import Flask
 from flask_cors import CORS
+from flask_jwt_extended import JWTManager
 
 from config import Config
 
@@ -11,6 +12,11 @@ def create_app(config_class=Config):
 
     # --- Extensions ---
     CORS(app)
+    JWTManager(app)
+
+    from app.models import db
+
+    db.init_app(app)
 
     # --- Blueprints (routes) ---
     from app.routes import register_blueprints

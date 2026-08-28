@@ -79,28 +79,32 @@ export default function Projects() {
                     {project.category}
                   </span>
                   <div className="flex items-center gap-2">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-8 h-8 rounded-lg bg-dark-surface border border-dark-border flex items-center justify-center text-gray-500 hover:text-primary hover:border-primary/40 transition-all"
-                      aria-label="GitHub"
-                    >
-                      <FiGithub size={14} />
-                    </a>
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-8 h-8 rounded-lg bg-dark-surface border border-dark-border flex items-center justify-center text-gray-500 hover:text-primary hover:border-primary/40 transition-all"
-                      aria-label="View Project"
-                    >
-                      <FiExternalLink size={14} />
-                    </a>
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-8 h-8 rounded-lg bg-dark-surface border border-dark-border flex items-center justify-center text-gray-500 hover:text-primary hover:border-primary/40 transition-all"
+                        aria-label={`View ${project.title} source on GitHub`}
+                      >
+                        <FiGithub size={14} />
+                      </a>
+                    )}
+                    {project.link && (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-8 h-8 rounded-lg bg-dark-surface border border-dark-border flex items-center justify-center text-gray-500 hover:text-primary hover:border-primary/40 transition-all"
+                        aria-label={`View ${project.title} live`}
+                      >
+                        <FiExternalLink size={14} />
+                      </a>
+                    )}
                   </div>
                 </div>
 
-                <h3 className="font-display font-bold text-ink text-base mb-2 group-hover:text-primary transition-colors transition-colors">
+                <h3 className="font-display font-bold text-ink text-base mb-2 group-hover:text-primary transition-colors">
                   {project.title}
                 </h3>
                 <p className="text-gray-500 text-sm leading-relaxed flex-1 mb-5">

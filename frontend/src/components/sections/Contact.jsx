@@ -12,7 +12,7 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setStatus("sending");
-    // Simulate send â€” swap with EmailJS / Formspree for real email
+    // Simulate send — swap with EmailJS / Formspree for real email
     setTimeout(() => {
       setStatus("sent");
       setForm({ name: "", email: "", subject: "", message: "" });
@@ -45,7 +45,7 @@ export default function Contact() {
         </motion.div>
 
         <div className="grid lg:grid-cols-5 gap-10">
-          {/* Contact info â€” left */}
+          {/* Contact info — left */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -97,7 +97,7 @@ export default function Contact() {
             </div>
           </motion.div>
 
-          {/* Contact form â€” right */}
+          {/* Contact form — right */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -173,7 +173,7 @@ export default function Contact() {
                     Sending...
                   </>
                 ) : status === "sent" ? (
-                  <>âœ… Message Sent!</>
+                  <>✅ Message Sent!</>
                 ) : (
                   <>
                     <FiSend size={16} />
@@ -188,7 +188,7 @@ export default function Contact() {
                   animate={{ opacity: 1, y: 0 }}
                   className="text-center text-sm text-primary font-mono"
                 >
-                  Thanks! I'll get back to you soon. ðŸš€
+                  Thanks! I'll get back to you soon. 🚀
                 </motion.p>
               )}
             </form>

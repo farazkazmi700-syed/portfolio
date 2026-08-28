@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FiMapPin, FiMail, FiPhone, FiGithub, FiLinkedin, FiAward } from "react-icons/fi";
+import { FiMapPin, FiMail, FiPhone, FiGithub, FiLinkedin } from "react-icons/fi";
 import { cvData } from "../../content/cvData";
 
 const fadeUp = {
@@ -95,7 +95,7 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* Right: Stats + Certifications */}
+          {/* Right: Stats + Soft Skills */}
           <div className="space-y-6">
             {/* Stats grid */}
             <motion.div
@@ -117,29 +117,6 @@ export default function About() {
                 </motion.div>
               ))}
             </motion.div>
-
-            {/* Certification */}
-            {cvData.certifications.map((cert, i) => (
-              <motion.div
-                key={cert.name}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-80px" }}
-                variants={fadeUp}
-                custom={3}
-                className="card-dark p-6 border-l-2 border-l-primary"
-              >
-                <div className="flex items-start gap-3">
-                  <div className="w-11 h-11 shrink-0 rounded-lg bg-ink text-accent flex items-center justify-center mt-0.5 shadow-sm"><FiAward size={20} /></div>
-                  <div>
-                    <div className="text-xs font-mono text-primary mb-1">Certification</div>
-                    <h4 className="font-display font-bold text-ink text-sm mb-1">{cert.name}</h4>
-                    <p className="text-gray-500 text-xs">{cert.issuer}</p>
-                    <p className="text-gray-600 text-xs mt-1 font-mono">{cert.period}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
 
             {/* Soft skills */}
             <motion.div

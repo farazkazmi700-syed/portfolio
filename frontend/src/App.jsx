@@ -1,25 +1,18 @@
-import Navbar from "./components/layout/Navbar";
-import Footer from "./components/layout/Footer";
-import Hero from "./components/sections/Hero";
-import About from "./components/sections/About";
-import Skills from "./components/sections/Skills";
-import Projects from "./components/sections/Projects";
-import Education from "./components/sections/Education";
-import Contact from "./components/sections/Contact";
+import { Routes, Route } from "react-router-dom";
+import Site from "./pages/Site";
+import ArticleDetail from "./pages/ArticleDetail";
+import AdminApp from "./admin/AdminApp";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-dark text-muted font-body overflow-x-hidden">
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Education />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <Routes>
+      {/* User view */}
+      <Route path="/" element={<Site />} />
+      <Route path="/articles/:slug" element={<ArticleDetail />} />
+      {/* Admin view (login + CMS dashboard) */}
+      <Route path="/admin/*" element={<AdminApp />} />
+    </Routes>
   );
 }
+
+

@@ -3,12 +3,19 @@
 @tailwind utilities;
 
 @layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   body {
-    @apply bg-dark text-white font-body antialiased;
+    @apply bg-dark text-white font-body antialiased overflow-x-hidden;
     background-image: 
       radial-gradient(ellipse at 20% 50%, rgba(5, 150, 105, 0.04) 0%, transparent 50%),
       radial-gradient(ellipse at 80% 20%, rgba(124, 58, 237, 0.04) 0%, transparent 50%);
@@ -16,6 +23,11 @@
 
   ::selection {
     @apply bg-primary text-white;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
   }
 
   ::-webkit-scrollbar {

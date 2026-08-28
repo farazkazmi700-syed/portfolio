@@ -135,7 +135,10 @@ export default function Hero() {
               <div className="relative h-[20rem] w-[16rem] md:h-[22rem] md:w-[18rem] lg:h-[26rem] lg:w-[21rem] overflow-hidden rounded-3xl border border-primary/20 bg-dark-card shadow-2xl shadow-primary/10 drop-shadow-2xl animate-pulse-glow">
                 <img
                   src="/assets/images/faraz-profile.png"
-                  alt="Muhammad Faraz Kazmi"
+                  alt="Portrait of Muhammad Faraz Kazmi, AI Engineer and Python Developer"
+                  width="420"
+                  height="520"
+                  loading="lazy"
                   className="h-full w-full object-cover object-[50%_28%] saturate-110 contrast-110 brightness-90"
                 />
                 <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/20 via-black/5 to-primary/5" />

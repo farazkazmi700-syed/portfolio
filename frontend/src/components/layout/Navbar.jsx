@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FiDownload } from "react-icons/fi";
+import { FiDownload, FiMoon, FiSun } from "react-icons/fi";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 import { cvData } from "../../content/cvData";
 
@@ -10,6 +10,7 @@ const navLinks = [
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },
+  { label: "Experience", href: "#experience" },
   { label: "Education", href: "#education" },
   { label: "Contact", href: "#contact" },
 ];
@@ -18,12 +19,25 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [active, setActive] = useState("");
+  const [darkMode, setDarkMode] = useState(() => {
+    const saved = localStorage.getItem("faraz-theme");
+    return saved ? saved === "dark" : window.matchMedia?.("(prefers-color-scheme: dark)").matches;
+  });
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", darkMode);
+    localStorage.setItem("faraz-theme", darkMode ? "dark" : "light");
+  }, [darkMode]);
+
+  function toggleTheme() {
+    setDarkMode((current) => !current);
+  }
 
   return (
     <>
@@ -69,6 +83,15 @@ export default function Navbar() {
 
             {/* CTA + Hamburger */}
             <div className="flex items-center gap-3">
+              <button
+                type="button"
+                onClick={toggleTheme}
+                className="theme-toggle"
+                aria-label={darkMode ? "Switch to light theme" : "Switch to dark theme"}
+                title={darkMode ? "Switch to light theme" : "Switch to dark theme"}
+              >
+                {darkMode ? <FiSun aria-hidden="true" /> : <FiMoon aria-hidden="true" />}
+              </button>
               <a
                 href={resumePath}
                 download="Muhammad_Faraz_ATS_Resume.pdf"
@@ -97,7 +120,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed top-16 left-0 right-0 z-40 bg-white border-b border-dark-border shadow-xl md:hidden"
+            className="fixed top-16 left-0 right-0 z-40 bg-white dark:bg-ink border-b border-dark-border shadow-xl md:hidden"
           >
             <div className="px-6 py-4 flex flex-col gap-2">
               {navLinks.map((link) => (
@@ -110,6 +133,14 @@ export default function Navbar() {
                   {link.label}
                 </a>
               ))}
+              <button
+                type="button"
+                onClick={toggleTheme}
+                className="theme-toggle w-full justify-center gap-2"
+              >
+                {darkMode ? <FiSun aria-hidden="true" /> : <FiMoon aria-hidden="true" />}
+                {darkMode ? "Light theme" : "Dark theme"}
+              </button>
               <a
                 href={resumePath}
                 download="Muhammad_Faraz_ATS_Resume.pdf"

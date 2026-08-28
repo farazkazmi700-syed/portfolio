@@ -109,7 +109,7 @@ export default function Skills() {
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div>
               <p className="text-sm font-mono text-gray-500 mb-1">Primary Language</p>
-              <p className="font-display font-bold text-ink text-lg">Python ðŸ</p>
+              <p className="font-display font-bold text-ink text-lg">Python 🐍</p>
             </div>
             <div className="flex items-center gap-3 flex-1 max-w-md">
               <span className="text-xs font-mono text-gray-500 w-20 text-right">Proficiency</span>
