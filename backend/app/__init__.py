@@ -18,6 +18,12 @@ def create_app(config_class=Config):
 
     db.init_app(app)
 
+    # --- Ensure tables/columns exist and seed default portfolio/admin data ---
+    with app.app_context():
+        from app.models import ensure_schema, seed_if_empty
+        ensure_schema()
+        seed_if_empty()
+
     # --- Blueprints (routes) ---
     from app.routes import register_blueprints
 

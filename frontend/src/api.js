@@ -42,8 +42,6 @@ export const api = {
     return r;
   },
   logout: () => setToken(""),
-  articles: () => request("/articles"),
-  article: (slug) => request(`/articles/${slug}`),
   portfolio: () => request("/portfolio"),
 };
 
@@ -53,5 +51,6 @@ export const adminApi = {
   create: (path, body) => request(`/admin${path}`, { method: "POST", body, auth: true }),
   update: (path, body) => request(`/admin${path}`, { method: "PUT", body, auth: true }),
   remove: (path) => request(`/admin${path}`, { method: "DELETE", auth: true }),
+  changePassword: (body) => request("/admin/change-password", { method: "POST", body, auth: true }),
 };
 

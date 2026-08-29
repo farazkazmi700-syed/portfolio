@@ -99,6 +99,27 @@
   .theme-toggle {
     @apply inline-flex h-10 w-10 items-center justify-center rounded-full border border-dark-border text-ink transition-all duration-200 hover:border-primary hover:text-primary hover:bg-surface;
   }
+
+  /* Admin CMS form controls */
+  .admin-input {
+    @apply w-full bg-white border border-dark-border rounded-md px-4 py-2.5 text-sm text-ink placeholder-gray-400 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all;
+  }
+
+  .admin-label {
+    @apply block text-xs font-semibold text-ink uppercase tracking-widest mb-1.5;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 bg-surface border border-dark-border text-ink px-4 py-2 rounded-lg font-medium text-sm hover:border-primary hover:text-primary transition-all;
+  }
+
+  .icon-button {
+    @apply inline-flex items-center justify-center text-gray-500 hover:text-primary transition-colors;
+  }
+
+  .publish-badge {
+    @apply inline-flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wide px-2 py-0.5 rounded-full;
+  }
 }
 
 @layer base {

@@ -1,5 +1,6 @@
 """Global error handling registered on the app."""
 from flask import jsonify
+from werkzeug.exceptions import RequestEntityTooLarge
 
 from app.services.helpers import SyncError
 
@@ -22,6 +23,11 @@ def register_error_handlers(app):
             ),
             502,
         )
+
+    @app.errorhandler(RequestEntityTooLarge)
+    def handle_too_large(_exc):
+        return jsonify({"ok": False,
+                        "error": "File too large (max 15 MB)"}), 413
 
     @app.errorhandler(404)
     def handle_404(_exc):

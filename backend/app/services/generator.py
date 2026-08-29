@@ -1,17 +1,12 @@
-"""Regenerate the frontend content file(s) (src/content/cvData.js and
-frontend/src/content/cvData.js) from the merged profile snapshot so the
-statically-deployed Vite site shows the synced LinkedIn data after a
-rebuild/redeploy.
+"""Regenerate the deployed frontend content file from the merged profile
+snapshot so the Vite site reflects the latest LinkedIn sync.
 """
 import json
 import os
 
 from app.services.store import BASE_DIR
 
-# Both the root legacy tree and the npm-workspace frontend are covered,
-# whichever one Vercel/npm picks up stays current.
 TARGETS = [
-    os.path.join(BASE_DIR, "src", "content", "cvData.js"),
     os.path.join(BASE_DIR, "frontend", "src", "content", "cvData.js"),
 ]
 
@@ -28,6 +23,28 @@ def _fmt(value):
     return json.dumps(value, indent=2, ensure_ascii=False)
 
 
+def _atomic_write(target, content, attempts=10, delay=0.25):
+    """Write via temp file + replace, retrying briefly on PermissionError.
+
+    On Windows, dev-server file watchers / AV scanners can hold the target
+    file for a moment right after it changes, making an immediate second
+    os.replace() fail with Access Denied.
+    """
+    import time
+
+    tmp = target + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as fh:
+        fh.write(content)
+    for attempt in range(attempts):
+        try:
+            os.replace(tmp, target)
+            return
+        except PermissionError:
+            if attempt == attempts - 1:
+                raise
+            time.sleep(delay)
+
+
 def generate(profile):
     """Write every cvData.js target from the merged profile dict."""
     body = {k: v for k, v in profile.items() if k != "meta"}
@@ -35,10 +52,7 @@ def generate(profile):
     written = []
     for target in TARGETS:
         os.makedirs(os.path.dirname(target), exist_ok=True)
-        tmp = target + ".tmp"
-        with open(tmp, "w", encoding="utf-8") as fh:
-            fh.write(js)
-        os.replace(tmp, target)
+        _atomic_write(target, js)
         written.append(target)
     return written
 

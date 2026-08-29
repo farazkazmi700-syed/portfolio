@@ -39,7 +39,9 @@ def export_profile():
         "softSkills": soft,
         "experience": _sorted(
             [e.as_dict() for e in Experience.query.all()]),
-        "projects": _sorted([p.as_dict() for p in Project.query.all()], "category"),
+        "projects": _sorted([
+            p.as_dict() for p in Project.query.filter_by(published=True)],
+            "category"),
         "education": _sorted([e.as_dict() for e in Education.query.all()]),
         "certifications": _sorted(
             [c.as_dict() for c in Certification.query.all()], "period"),
@@ -144,7 +146,8 @@ def sync_scalar_settings(payload):
     """Update key/value site fields when a non-empty value arrives."""
     touched = 0
     for key in ("name", "title", "tagline", "bio", "location", "phone",
-                "email", "github", "linkedin"):
+                "email", "github", "linkedin", "profileImage",
+                "resume"):
         value = payload.get(key)
         if isinstance(value, str) and value.strip():
             current = ProfileSetting.query.get(key)

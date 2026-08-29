@@ -1,18 +1,49 @@
 """HTTP API: public portfolio endpoints + LinkedIn sync + admin CMS."""
-import re
-
-from flask import Blueprint, jsonify, request
+import os
+from werkzeug.utils import secure_filename
+from flask import Blueprint, jsonify, request, send_from_directory
 from flask_jwt_extended import create_access_token, get_jwt_identity, jwt_required
 
 from app import cms
 from app.middleware import SyncError
-from app.models import (AdminUser, Article, Certification, Education,
+from app.models import (AdminUser, Certification, Education,
                         Experience, Project, Skill, db)
 from app.services import generator, parser, store
 from app.services.linkedin_fetcher import DEFAULT_URL, fetch_profile_source
 
 api = Blueprint("api", __name__, url_prefix="/api")
 admin = Blueprint("admin", __name__, url_prefix="/api/admin")
+
+
+# --- File uploads --------------------------------------------------- #
+
+@api.get("/uploads/<filename>")
+@admin.get("/uploads/<filename>")
+def serve_upload(filename):
+    upload_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "uploads"))
+    return send_from_directory(upload_dir, filename)
+
+
+@admin.post("/upload")
+@jwt_required()
+def upload_file():
+    if "file" not in request.files:
+        return jsonify({"ok": False, "error": "No file part"}), 400
+    file = request.files["file"]
+    if file.filename == "":
+        return jsonify({"ok": False, "error": "No selected file"}), 400
+    if file:
+        filename = secure_filename(file.filename)
+        # Add unique prefix
+        import time
+        filename = f"{int(time.time())}_{filename}"
+        upload_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "uploads"))
+        os.makedirs(upload_dir, exist_ok=True)
+        filepath = os.path.join(upload_dir, filename)
+        file.save(filepath)
+        file_url = f"/api/uploads/{filename}"
+        return jsonify({"ok": True, "url": file_url, "filename": filename})
+    return jsonify({"ok": False, "error": "Upload failed"}), 400
 
 # Model registry used by generic CRUD ------------------------------- #
 RESOURCES = {
@@ -29,9 +60,21 @@ def regen_static():
     generator.generate(cms.export_profile())
 
 
-def slugify(text):
-    return re.sub(r"-{2,}", "-", re.sub(r"[^a-z0-9]+", "-",
-                  (text or "").lower())).strip("-") or "post"
+def _sync_response(added, skipped, *, include_data=True):
+    """Return consistent payload shape for sync/import endpoints."""
+    response = {
+        "ok": True,
+        "added": int(added),
+        "skippedAlreadyOnSite": int(skipped),
+        "stats": {
+            "added": int(added),
+            "updated": 0,
+            "skippedAlreadyOnSite": int(skipped),
+        },
+    }
+    if include_data:
+        response["data"] = cms.export_profile()
+    return response
 
 
 # ------------------------------------------------------------------ #
@@ -46,21 +89,6 @@ def health():
 @api.get("/portfolio")
 def get_portfolio():
     return jsonify({"ok": True, "data": cms.export_profile()})
-
-
-@api.get("/articles")
-def list_articles():
-    arts = Article.query.filter_by(published=True)\
-        .order_by(Article.created_at.desc()).all()
-    return jsonify({"ok": True, "data": [a.as_dict() for a in arts]})
-
-
-@api.get("/articles/<slug>")
-def get_article(slug):
-    art = Article.query.filter_by(slug=slug, published=True).first()
-    if not art:
-        return jsonify({"ok": False, "error": "Article not found"}), 404
-    return jsonify({"ok": True, "data": art.as_dict(full=True)})
 
 
 # ------------------------------------------------------------------ #
@@ -78,11 +106,12 @@ def linkedin_sync():
     cms.sync_scalar_settings(incoming)
     db.session.commit()
     regen_static()
-    store.record_update(store.load(), label, added, skipped)
-    return jsonify({"ok": True, "added": added,
-                    "skippedAlreadyOnSite": skipped,
-                    "lastSyncedAt": store.load()["meta"]["lastSyncedAt"],
-                    "data": cms.export_profile()})
+    profile = store.load()
+    store.record_update(profile, label, added, skipped)
+    store.save(profile)
+    response = _sync_response(added, skipped)
+    response["lastSyncedAt"] = profile["meta"]["lastSyncedAt"]
+    return jsonify(response)
 
 
 @api.post("/linkedin/import")
@@ -98,8 +127,10 @@ def linkedin_import():
     cms.sync_scalar_settings(incoming)
     db.session.commit()
     regen_static()
-    return jsonify({"ok": True, "added": added,
-                    "skippedAlreadyOnSite": skipped})
+    profile = store.load()
+    store.record_update(profile, label, added, skipped)
+    store.save(profile)
+    return jsonify(_sync_response(added, skipped))
 
 
 # ------------------------------------------------------------------ #
@@ -223,61 +254,6 @@ def delete_row(resource, row_id):
     db.session.delete(row)
     db.session.commit()
     regen_static()
-    return jsonify({"ok": True})
-
-
-# --- Articles management ------------------------------------------- #
-
-@admin.get("/articles")
-@jwt_required()
-def admin_articles():
-    arts = Article.query.order_by(Article.created_at.desc()).all()
-    return jsonify({"ok": True, "data": [a.as_dict(full=True) for a in arts]})
-
-
-@admin.post("/articles")
-@jwt_required()
-def create_article():
-    body = request.get_json(silent=True) or {}
-    title = (body.get("title") or "").strip()
-    if not title:
-        return jsonify({"ok": False, "error": "Title is required"}), 400
-    slug = slugify(body.get("slug") or title)
-    if Article.query.filter_by(slug=slug).first():
-        slug = f"{slug}-{Article.query.count() + 1}"
-    published = bool(body.get("published", body.get("status") == "published"))
-    art = Article(slug=slug, title=title, excerpt=body.get("excerpt", ""),
-                  body=body.get("body", body.get("content", "")),
-                  published=published)
-    db.session.add(art)
-    db.session.commit()
-    return jsonify({"ok": True, "data": art.as_dict(full=True)}), 201
-
-
-@admin.put("/articles/<int:art_id>")
-@jwt_required()
-def update_article(art_id):
-    art = db.session.get(Article, art_id)
-    if not art:
-        return jsonify({"ok": False, "error": "Not found"}), 404
-    body = request.get_json(silent=True) or {}
-    for field in ("title", "excerpt", "body", "published"):
-        if field in body:
-            setattr(art, field, body[field])
-    if body.get("slug"):
-        art.slug = slugify(body["slug"])
-    db.session.commit()
-    return jsonify({"ok": True, "data": art.as_dict(full=True)})
-
-
-@admin.delete("/articles/<int:art_id>")
-@jwt_required()
-def delete_article(art_id):
-    art = db.session.get(Article, art_id)
-    if not art:
-        return jsonify({"ok": False, "error": "Not found"}), 404
-    db.session.delete(art)
-    db.session.commit()
     return jsonify({"ok": True})
 
 

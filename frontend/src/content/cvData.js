@@ -4,8 +4,8 @@
 // Manual edits are preserved in backend/data/profile.json and re-applied.
 
 export const cvData = {
-  "name": "Muhammad Faraz Kazmi",
-  "title": "AI Engineer & Python Developer",
+  "name": "Deployment Check",
+  "title": "Engineer",
   "tagline": "Building Intelligent Solutions for the Real World",
   "bio": "Aspiring AI Engineer and Python Developer with a strong passion for building practical, real-world solutions through technology. Actively developing skills in Python, Machine Learning, and Deep Learning to design impactful, efficient, and innovative applications.",
   "location": "Lahore, Pakistan",
@@ -13,6 +13,8 @@ export const cvData = {
   "email": "kazmitech142@gmail.com",
   "github": "https://github.com/farazkazmi700-syed",
   "linkedin": "https://www.linkedin.com/in/muhammad-faraz-kazmi/",
+  "profileImage": "",
+  "resume": "",
   "skills": {
     "Databases": [
       "MySQL",
@@ -32,10 +34,6 @@ export const cvData = {
       "Seaborn",
       "Streamlit",
       "Flask"
-    ],
-    "LinkedIn Skills": [
-      "LangChain",
-      "FastAPI"
     ],
     "ML / AI": [
       "Machine Learning",
@@ -76,11 +74,11 @@ export const cvData = {
   ],
   "experience": [
     {
-      "id": 2,
-      "title": "Python Tutor",
-      "company": "Freelance",
-      "period": "Jun 2024 – Dec 2024",
-      "description": "Taught basics."
+      "id": 1,
+      "title": "Python Devoloper",
+      "company": "Zynthra Ltd.",
+      "period": "May-2026",
+      "description": "As Python developer in AI automation builds, connects, and maintains smart software workflows that use artificial intelligence to perform repetitive or complex tasks with minimal human input."
     }
   ],
   "projects": [
@@ -94,7 +92,8 @@ export const cvData = {
         "EDA",
         "Regression"
       ],
-      "category": "Machine Learning"
+      "category": "Machine Learning",
+      "published": true
     },
     {
       "id": 2,
@@ -106,7 +105,8 @@ export const cvData = {
         "NLP",
         "Chatbot"
       ],
-      "category": "Generative AI"
+      "category": "Generative AI",
+      "published": true
     },
     {
       "id": 3,
@@ -118,7 +118,8 @@ export const cvData = {
         "CNN",
         "TensorFlow"
       ],
-      "category": "Computer Vision"
+      "category": "Computer Vision",
+      "published": true
     }
   ],
   "education": [
@@ -132,8 +133,8 @@ export const cvData = {
   ],
   "certifications": [
     {
-      "id": 2,
-      "name": " Python for AI",
+      "id": 1,
+      "name": "Deep Learning Specialization",
       "issuer": "DeepLearning.AI",
       "period": "July 2026"
     },
@@ -144,10 +145,10 @@ export const cvData = {
       "period": "June, 2026"
     },
     {
-      "id": 4,
+      "id": 2,
       "name": "Artificail Intelligence / Machine Learning Course",
       "issuer": "National Vocational Trade Training Center",
-      "period": "February 2026 - May 2026"
+      "period": "February 2026 – May 2026"
     }
   ]
 };

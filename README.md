@@ -76,29 +76,47 @@ backend\venv\Scripts\python.exe backend\scripts\sync.py --import myprofile.json
 
 ```text
 portfolio/
-├── backend/                     # Flask LinkedIn-sync service
+├── backend/                     # Flask API and sync engine
 │   ├── app/
-│   │   ├── routes.py            # /api/health /api/portfolio /api/linkedin/*
+│   │   ├── cms.py               # DB-backed portfolio export + dedupe merge
+│   │   ├── models.py            # SQLAlchemy models + schema migration helpers
+│   │   ├── routes.py            # /api/* + /api/admin/* endpoints
 │   │   ├── middleware.py        # error handlers
 │   │   └── services/
-│   │       ├── linkedin_fetcher.py  # provider chain
-│   │       ├── parser.py            # normalize payloads
-│   │       ├── merger.py            # merge + sort + date-keeping rules
-│   │       ├── store.py             # data/profile.json persistence
-│   │       ├── generator.py         # rewrites cvData.js files
+│   │       ├── generator.py     # writes frontend/src/content/cvData.js
+│   │       ├── linkedin_fetcher.py
+│   │       ├── merger.py        # snapshot merge rules
+│   │       ├── parser.py        # normalize provider JSON / HTML
+│   │       ├── store.py         # backend/data/profile.json persistence
 │   │       └── helpers.py
-│   ├── scripts/sync.py          # CLI: python scripts/sync.py [--import x.json]
-│   ├── tests/test_api.py        # in-process endpoint tests
-│   ├── data/profile.json        # merged snapshot (source of truth)
+│   ├── data/
+│   │   └── profile.json         # source-of-truth merged snapshot
+│   ├── scripts/
+│   │   └── sync.py              # CLI: sync/import the LinkedIn profile
+│   ├── tests/
+│   │   ├── test_api.py
+│   │   └── test_cms.py
+│   ├── .env.example
+│   ├── config.py
 │   ├── requirements.txt
-│   └── .env.example
-├── frontend/                    # Vite React app (deployed by Vercel)
-│   ├── src/components/sections/ # Hero About Skills Projects Experience Education Contact
-│   ├── src/hooks/useLiveSync.js # runtime overlay from GET /api/portfolio
-│   └── src/content/cvData.js    # AUTO-GENERATED on every sync
-├── src/                         # legacy dark-theme mirror of frontend/src
-├── package.json                 # npm workspaces: ["frontend"] + dev/sync scripts
-└── vercel.json
+│   └── run.py
+├── frontend/                    # Vite + React portfolio app
+│   ├── src/
+│   │   ├── components/
+│   │   ├── content/cvData.js    # generated portfolio data
+│   │   ├── hooks/
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   ├── public/
+│   ├── package.json
+│   ├── tailwind.config.js
+│   ├── vite.config.js
+│   └── vercel.json              # local frontend-only deployment config
+├── .gitignore
+├── package.json                 # root workspace scripts
+├── vercel.json                  # deploy root project to frontend/dist
+├── README.md
+└── .vercelignore
 ```
 
 ## Local Development

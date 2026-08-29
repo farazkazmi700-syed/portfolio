@@ -8,6 +8,8 @@ venv/
 __pycache__/
 *.pyc
 instance/
+backend/data/*.db
+backend/data/uploads/
 
 # Env & logs
 .env
